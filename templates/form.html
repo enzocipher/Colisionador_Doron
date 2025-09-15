@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Doron Colisionador de Mundos</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #181c20;
+      color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    h2 {
+      margin-top: 40px;
+      color: #ffb347;
+      letter-spacing: 2px;
+      text-shadow: 1px 1px 4px #000;
+    }
+    form {
+      background: #23272b;
+      padding: 24px 32px;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px #0006;
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-width: 320px;
+      max-width: 400px;
+    }
+    input[type="file"] {
+      background: #181c20;
+      color: #f2f2f2;
+      border: none;
+      padding: 8px;
+      border-radius: 6px;
+    }
+    input[type="submit"] {
+      background: #ffb347;
+      color: #23272b;
+      border: none;
+      padding: 10px 0;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    input[type="submit"]:hover {
+      background: #ff9900;
+    }
+    #resultado {
+      background: #23272b;
+      margin-top: 32px;
+      padding: 18px 24px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px #0004;
+      color: #ffb347;
+      font-size: 1.1em;
+      max-width: 400px;
+      word-break: break-all;
+    }
+    pre {
+      background: #181c20;
+      color: #f2f2f2;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h2>Doron Colisionador de Mundos</h2>
+  <form method="POST" enctype="multipart/form-data" autocomplete="off" id="uploadForm">
+    <label>Archivo 1:</label>
+  <input type="file" name="file1" required>
+    <label>Archivo 2:</label>
+  <input type="file" name="file2" required>
+  <input type="submit" value="Verificar">
+  </form>
+  {% if result %}
+  <div id="resultado">
+    <h3>Resultado:</h3>
+    <pre>{{ result }}</pre>
+  </div>
+  {% endif %}
+  <script>
+    window.onload = function() {
+      document.getElementById('uploadForm').reset();
+    };
+  </script>
+</body>
+</html>
